@@ -7,5 +7,4 @@ class Product < ApplicationRecord
     validates :inventory_count, numericality: {
         greather_than_or_equal_to: 0
     }
-
 end
