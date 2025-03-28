@@ -8,6 +8,4 @@ class Product < ApplicationRecord
         greather_than_or_equal_to: 0
     }
 
-    after_update_commit :notify_subscribers, if: :back_in_stock?
-
 end
