@@ -38,6 +38,13 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  around_action :switch_locale
+
+  def switch_locale(&action)
+    locale = params[:locale] || I18n.default_locale
+    I18n.with_locale(locale, &action)
+  end
+
   private
     def set_product
       @product = Product.find(params[:id])
